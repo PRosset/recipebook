@@ -1,10 +1,10 @@
 angular.module("recipesApp")
 .service("httpService", function($http) {
 	this.indexRecipes = function () {
-		return $http.get("/api");
+		return $http.get("/recipes");
 	}
     this.getRecipe = function(id) {
-        return $http.get("/api/" + id);
+        return $http.get("/recipes/" + id);
     }
     this.recipeFromApiKeyword = function (keyword) {
         return $http.get("/api/yummly-keyword/" + keyword);
@@ -13,21 +13,21 @@ angular.module("recipesApp")
     	return $http.get("/api/yummly-id/" + id);
     }
     this.addRecipe = function (recipe) {
-        return $http.post("/api/recipe", recipe);
+        return $http.post("/recipes", recipe);
     }
     this.getNotes = function (recipeId) {
-        return $http.get("/api/notes/" + recipeId);
+        return $http.get("/recipes/" + recipeId + "/notes/");
     }
     this.saveNote = function (note, recipeId) {
-        return $http.post("/api/note/" + recipeId, note);
+        return $http.post("/recipes/" + recipeId + "/notes/", note);
     }
     this.editNote = function (note) {
-        return $http.put("/api/note/edit", note)
+        return $http.put("/recipes/" + note.recipe_id + "/notes/" + note.id, note)
     }
     this.favRecipe = function (recipe) {
         return $http.put("/api/togglefav", recipe);
     }
     this.deleteNote = function (noteId, recipeId) {
-        return $http.delete("/api/" + recipeId + "/note/" + noteId)
+        return $http.delete("/recipes/" + recipeId + "/note/" + noteId)
     }
 })

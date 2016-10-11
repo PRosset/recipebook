@@ -145,14 +145,18 @@ angular.module("recipesApp")
         instruction: index
       }
       httpService.saveNote(note, $stateParams.id)
-      .then(function() {
+      .then(function(res) {
+        console.log(res);
         that.instForNote = null;
         that.addingNote = false;
         that.noteText = null;
-        that.getNotes()
-        .then(function(res) {
-          console.log("Notes are gotten");
-        });
+        // that.notes.push(res.data);
+        that.notes[res.data.instruction].push(res.data);
+
+        // that.getNotes()
+        // .then(function(res) {
+        //   console.log("Notes are gotten");
+        // });
       })
       .catch(function(err) {
         console.log(err);

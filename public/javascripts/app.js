@@ -2,7 +2,7 @@ angular.module("recipesApp", ["ui.router", "ngAnimate"])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/recipes")
+  $urlRouterProvider.otherwise("/home")
     $stateProvider
     .state("home", {
         url: "/home",
