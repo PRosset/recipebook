@@ -150,13 +150,7 @@ angular.module("recipesApp")
         that.instForNote = null;
         that.addingNote = false;
         that.noteText = null;
-        // that.notes.push(res.data);
         that.notes[res.data.instruction].push(res.data);
-
-        // that.getNotes()
-        // .then(function(res) {
-        //   console.log("Notes are gotten");
-        // });
       })
       .catch(function(err) {
         console.log(err);
