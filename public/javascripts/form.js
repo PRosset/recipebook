@@ -103,7 +103,6 @@ angular.module("recipesApp")
         this.searchApiKeyword = function() {
             httpService.recipeFromApiKeyword(this.searchTerm)
             .then(function(res) {
-                console.log(res.data.matches);
                 that.recipeNumber = res.data.matches.length;
                 that.recipes = res.data.matches;
                 that.name = res.data.matches[that.recipeIndex].recipeName;

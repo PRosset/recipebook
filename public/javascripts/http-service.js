@@ -7,10 +7,10 @@ angular.module("recipesApp")
         return $http.get("/recipes/" + id);
     }
     this.recipeFromApiKeyword = function (keyword) {
-        return $http.get("/api/yummly-keyword/" + keyword);
+        return $http.get("/yummly/keyword/" + keyword);
     }
     this.recipeFromApiId = function (id) {
-    	return $http.get("/api/yummly-id/" + id);
+    	return $http.get("yummly/id/" + id);
     }
     this.addRecipe = function (recipe) {
         return $http.post("/recipes", recipe);

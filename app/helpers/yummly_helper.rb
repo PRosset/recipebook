@@ -1,0 +1,2 @@
+module YummlyHelper
+end
