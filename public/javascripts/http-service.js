@@ -28,6 +28,6 @@ angular.module("recipesApp")
         return $http.put("/api/togglefav", recipe);
     }
     this.deleteNote = function (noteId, recipeId) {
-        return $http.delete("/recipes/" + recipeId + "/note/" + noteId)
+        return $http.delete("/recipes/" + recipeId + "/notes/" + noteId)
     }
 })
